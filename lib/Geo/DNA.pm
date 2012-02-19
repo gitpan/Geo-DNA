@@ -1,6 +1,6 @@
 package Geo::DNA;
 
-our $VERSION = "0.3.1";
+our $VERSION = "0.3.2";
 
 use common::sense;
 
@@ -25,6 +25,11 @@ my $DECODE_MAP = {
     't' => 2,
     'c' => 3,
 };
+
+sub _mod {
+    my ( $x, $m ) = @_;
+    return fmod( fmod( $x, $m ) + $m, $m);
+}
 
 sub encode_geo_dna {
     my ( @args ) = @_;
@@ -138,8 +143,8 @@ sub add_vector {
     my ( $lat, $lon, $dy, $dx ) = @_;
 
     return (
-        fmod( ( $lat + 90.0 + $dy ), 180.0 ) - 90.0,
-        fmod( ( $lon + 180.0 + $dx ), 360.0 )  - 180.0
+        _mod( ( $lat + 90.0 + $dy ), 180.0 ) - 90.0,
+        _mod( ( $lon + 180.0 + $dx ), 360.0 )  - 180.0
     );
 }
 
@@ -189,7 +194,7 @@ Geo::DNA - Encode latitude and longitude in a useful string format
 
 =head1 VERSION
 
-    0.3.1
+    0.3.2
 
 
 =head1 FEATURES
