@@ -1,6 +1,6 @@
 package Geo::DNA;
 
-our $VERSION = "0.3.3";
+our $VERSION = "0.31";
 
 use common::sense;
 
@@ -194,7 +194,7 @@ Geo::DNA - Encode latitude and longitude in a useful string format
 
 =head1 VERSION
 
-    0.3.3
+    0.31
 
 
 =head1 FEATURES
@@ -215,6 +215,9 @@ It's just basic space partitioning, really.
 =back
 
 =head1 DESCRIPTION
+
+NEW: see an interactive demo of Geo::DNA codes at
+http://www.shoffle.com/geodna-js/docs/google-maps.html
 
 This is a Perl version of the Python "geoprint" system that we developed
 a few years back at Action Without Borders.
